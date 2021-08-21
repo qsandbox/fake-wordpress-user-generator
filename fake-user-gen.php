@@ -10,7 +10,7 @@
 // Blog post: https://qSandbox.com/1083
 $role = 'subscriber';
 $email_tpl = 'mygmailemail@gmail.com';
-$max_users = 10;
+$max_users = 100;
 
 // This script will also be loaded by wp-cli
 // https://make.wordpress.org/cli/handbook/guides/force-output-specific-locale/
