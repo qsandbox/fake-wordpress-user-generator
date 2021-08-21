@@ -10,7 +10,7 @@
 // Blog post: https://qSandbox.com/1083
 $role = 'subscriber';
 $email_tpl = 'mygmailemail@gmail.com';
-$max_users = 1;
+$max_users = 10;
 
 // This script will also be loaded by wp-cli
 // https://make.wordpress.org/cli/handbook/guides/force-output-specific-locale/
@@ -39,7 +39,7 @@ if (class_exists('WP_CLI')) {
 }
 
 header("Content-Type: text/plain");
-echo "Creating users ";
+echo "Creating users\n";
 
 for ($i = 1; $i <= $max_users; $i++) {
 	$cmd_exit_code = 0;
@@ -69,7 +69,7 @@ for ($i = 1; $i <= $max_users; $i++) {
 	$user_id = intval($cmd_last_line);
 
 	echo "[$i/$max_users] user: [$user] " . (empty($cmd_exit_code) ? "Created user id: #$user_id" : 'Error creation: ' . $cmd_last_line) . "\n";
-
+	echo str_repeat(" ", 1024); // otherwise apache/browsers would cache the response. We want to see the info right away
 	@flush();
 	@ob_flush();
 }
