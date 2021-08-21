@@ -1,5 +1,9 @@
 # Fake WordPress User Generator
 This script allows you to create 100 fake users in WordPress site for testing purposes.
+This overrides wp_mail() function so no emails should go out during the user creation.
+This is because triggering 100 emails for a very short period of time may trigger some anti-spam filters. 
+
+If this is executed on https://qSandbox.com the outgoing emails block is already taken care of for you.
 
 Blog post: https://qSandbox.com/1083
 
